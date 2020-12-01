@@ -1,0 +1,8 @@
+使用示例:
+
+更改 10.0.10.2 这一台机器的ssh密码:
+$ ./sshpwd --host 10.0.10.2 --port 22 --user ctf --pass oldpass --newpass abc123
+批量更改 10.0.10.1/24 整个 C 段的 ssh 密码:
+$ ./sshpwd --host 10.0.10.1/24 --port 22 --user ctf --pass oldpass --newpass abc123
+批量更改 10.0.10.101,10.0.11.101,10.0.12.101 这三台机器(B段不同,但主机位一样)的密码:
+$ ./sshpwd --host 10.0.10-12.101 --port 22 --user ctf --pass oldpass --newpass abc123

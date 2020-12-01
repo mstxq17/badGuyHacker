@@ -1,0 +1,185 @@
+Source path:... /Users/xq17/Desktop/badGuy/ssh/sshPwn.py
+Starting var:.. ip = '101.200.157.195'
+Starting var:.. username = 'root'
+Starting var:.. password = 'ctf666..'
+Starting var:.. cmd = 'whoami'
+Starting var:.. port = 22
+16:07:13.108899 call        10 def ssh(ip, username, password, cmd, port=22):
+16:07:13.110029 line        11     try:
+16:07:13.110155 line        13         client = paramiko.SSHClient()
+New var:....... client = <paramiko.client.SSHClient object at 0x10a716d60>
+16:07:13.110284 line        15         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+16:07:13.110681 line        17         client.connect(ip, port, username=username, password=password, timeout=3)
+16:07:13.673612 line        19         stdin, stdout, stderr = client.exec_command(cmd)
+New var:....... stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+16:07:13.899456 line        21         cmd_result = stdout.read().decode(),stderr.read().decode()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+New var:....... cmd_result = ('root\n', '')
+16:07:13.907839 line        23         return cmd_result
+16:07:13.908934 line        33         ssh.close()
+16:07:13.909169 exception   33         ssh.close()
+Exception:..... AttributeError: 'function' object has no attribute 'close'
+Call ended by exception
+Elapsed time: 00:00:00.800955
+Source path:... /Users/xq17/Desktop/badGuy/ssh/sshPwn.py
+Starting var:.. ip = '101.200.157.195'
+Starting var:.. username = 'root'
+Starting var:.. password = 'ctf666..'
+Starting var:.. cmd = 'whoami'
+Starting var:.. port = 22
+16:07:27.921819 call        10 def ssh(ip, username, password, cmd, port=22):
+16:07:27.928343 line        12     client = paramiko.SSHClient()
+New var:....... client = <paramiko.client.SSHClient object at 0x1057c8af0>
+16:07:27.928653 line        13     try:
+16:07:27.929161 line        15         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+16:07:27.929358 line        17         client.connect(ip, port, username=username, password=password, timeout=3)
+16:07:28.325451 line        19         stdin, stdout, stderr = client.exec_command(cmd)
+New var:....... stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+16:07:28.548788 line        21         cmd_result = stdout.read().decode(),stderr.read().decode()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+New var:....... cmd_result = ('root\n', '')
+16:07:28.556773 line        23         return cmd_result
+16:07:28.557811 line        33         client.close()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x57e14f0 (unconnected)>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x57e14f0 (unconnected)>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x57e14f0 (unconnected)>>>
+16:07:28.558633 line        23         return cmd_result
+16:07:28.559539 return      23         return cmd_result
+Return value:.. ('root\n', '')
+Elapsed time: 00:00:00.638296
+Source path:... /Users/xq17/Desktop/badGuy/ssh/sshPwn.py
+Starting var:.. ip = '101.200.157.195'
+Starting var:.. username = 'root'
+Starting var:.. password = 'ctf666..'
+Starting var:.. cmd = 'whoami'
+Starting var:.. port = 22
+16:13:30.338972 call        10 def ssh(ip, username, password, cmd, port=22):
+16:13:30.340532 line        12     client = paramiko.SSHClient()
+New var:....... client = <paramiko.client.SSHClient object at 0x105e3fe50>
+16:13:30.340674 line        13     try:
+16:13:30.340930 line        15         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+16:13:30.341056 line        17         client.connect(ip, port, username=username, password=password, timeout=3)
+16:13:32.999639 exception   17         client.connect(ip, port, username=username, password=password, timeout=3)
+Exception:..... paramiko.ssh_exception.AuthenticationException: Authentication failed.
+16:13:33.005217 line        25     except paramiko.AuthenticationException as error:
+New var:....... error = AuthenticationException('Authentication failed.')
+16:13:33.005498 line        26         print("[-]ssh Login Error! password or username not correct!")
+16:13:33.005865 line        33         client.close()
+16:13:33.006738 return      33         client.close()
+Return value:.. None
+Elapsed time: 00:00:02.668246
+Source path:... /Users/xq17/Desktop/badGuy/ssh/sshPwn.py
+Starting var:.. ip = '101.200.157.195'
+Starting var:.. username = 'root'
+Starting var:.. password = 'aliyunctf666..'
+Starting var:.. cmd = 'whoami'
+Starting var:.. port = 22
+16:13:38.877131 call        10 def ssh(ip, username, password, cmd, port=22):
+16:13:38.883486 line        12     client = paramiko.SSHClient()
+New var:....... client = <paramiko.client.SSHClient object at 0x10ad02cd0>
+16:13:38.883697 line        13     try:
+16:13:38.884036 line        15         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+16:13:38.884203 line        17         client.connect(ip, port, username=username, password=password, timeout=3)
+16:13:39.291493 line        19         stdin, stdout, stderr = client.exec_command(cmd)
+New var:....... stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+16:13:39.515581 line        21         cmd_result = stdout.read().decode(),stderr.read().decode()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+New var:....... cmd_result = ('root\n', '')
+16:13:39.523908 line        23         return cmd_result
+16:13:39.525006 line        33         client.close()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0xad195e0 (unconnected)>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0xad195e0 (unconnected)>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0xad195e0 (unconnected)>>>
+16:13:39.525815 line        23         return cmd_result
+16:13:39.526665 return      23         return cmd_result
+Return value:.. ('root\n', '')
+Elapsed time: 00:00:00.650188
+Source path:... /Users/xq17/Desktop/badGuy/ssh/sshPwn.py
+Starting var:.. ip = '101.200.157.195'
+Starting var:.. username = 'xq17'
+Starting var:.. password = 'aliyunctf666..'
+Starting var:.. cmd = 'whoami'
+Starting var:.. port = 22
+16:27:08.947774 call        10 def ssh(ip, username, password, cmd, port=22):
+16:27:08.950109 line        12     client = paramiko.SSHClient()
+New var:....... client = <paramiko.client.SSHClient object at 0x10844d6d0>
+16:27:08.950372 line        13     try:
+16:27:08.950834 line        15         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+16:27:08.951022 line        17         client.connect(ip, port, username=username, password=password, timeout=3)
+16:27:09.375172 line        19         stdin, stdout, stderr = client.exec_command(cmd)
+New var:....... stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+16:27:10.110827 line        21         cmd_result = stdout.read().decode(),stderr.read().decode()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+New var:....... cmd_result = ('xq17\n', '')
+16:27:10.118954 line        23         return cmd_result
+16:27:10.120097 line        33         client.close()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x8465670 (unconnected)>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x8465670 (unconnected)>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x8465670 (unconnected)>>>
+16:27:10.120963 line        23         return cmd_result
+16:27:10.121835 return      23         return cmd_result
+Return value:.. ('xq17\n', '')
+Elapsed time: 00:00:01.174689
+Source path:... /Users/xq17/Desktop/badGuy/ssh/sshPwn.py
+Starting var:.. ip = '101.200.157.195'
+Starting var:.. username = 'xq17'
+Starting var:.. password = 'aliyunctf666..'
+Starting var:.. cmd = 'adduser test000'
+Starting var:.. port = 22
+16:32:27.510919 call        10 def ssh(ip, username, password, cmd, port=22):
+16:32:27.512642 line        12     client = paramiko.SSHClient()
+New var:....... client = <paramiko.client.SSHClient object at 0x108b1c7c0>
+16:32:27.512840 line        13     try:
+16:32:27.513231 line        15         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+16:32:27.513399 line        17         client.connect(ip, port, username=username, password=password, timeout=3)
+16:32:27.934594 line        19         stdin, stdout, stderr = client.exec_command(cmd)
+New var:....... stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+16:32:28.198475 line        21         cmd_result = stdout.read().decode(),stderr.read().decode()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 0 open channel(s))>>>
+New var:....... cmd_result = ('', 'adduser: Only root may add a user or group to the system.\n')
+16:32:28.237508 line        23         return cmd_result
+16:32:28.238733 line        33         client.close()
+Modified var:.. stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x8b35760 (unconnected)>>>
+Modified var:.. stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x8b35760 (unconnected)>>>
+Modified var:.. stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...<paramiko.Transport at 0x8b35760 (unconnected)>>>
+16:32:28.239485 line        23         return cmd_result
+16:32:28.240230 return      23         return cmd_result
+Return value:.. ('', 'adduser: Only root may add a user or group to the system.\n')
+Elapsed time: 00:00:00.729950
+Source path:... /Users/xq17/Desktop/badGuy/ssh/sshPwn.py
+Starting var:.. ip = '101.200.157.195'
+Starting var:.. username = 'root'
+Starting var:.. password = 'aliyunctf666..'
+Starting var:.. cmd = 'adduser test000'
+Starting var:.. port = 22
+16:32:40.785267 call        10 def ssh(ip, username, password, cmd, port=22):
+16:32:40.791866 line        12     client = paramiko.SSHClient()
+New var:....... client = <paramiko.client.SSHClient object at 0x107a91760>
+16:32:40.792084 line        13     try:
+16:32:40.792496 line        15         client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+16:32:40.792686 line        17         client.connect(ip, port, username=username, password=password, timeout=3)
+16:32:41.182898 line        19         stdin, stdout, stderr = client.exec_command(cmd)
+New var:....... stdin = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stdout = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+New var:....... stderr = <paramiko.ChannelFile from <paramiko.Channel 0 (...128-ctr, 128 bits) (active; 1 open channel(s))>>>
+16:32:41.405167 line        21         cmd_result = stdout.read().decode(),stderr.read().decode()
